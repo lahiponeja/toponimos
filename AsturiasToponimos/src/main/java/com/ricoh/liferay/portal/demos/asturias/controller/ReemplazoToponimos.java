@@ -58,7 +58,7 @@ public class ReemplazoToponimos extends MVCPortlet {
 				System.out.println("Url: "+url);
 				System.out.println("Titulo: "+title);
 				System.out.println("Titulo Plano: "+rawtitle);
-				//System.out.println("Contenido Plano: "+ rawcontent);
+				System.out.println("Contenido Plano (xml): "+ rawcontent);
 				
 				
 				Elements contents = Jsoup.parse(rawcontent).getElementsByTag("static-content");
@@ -68,7 +68,7 @@ public class ReemplazoToponimos extends MVCPortlet {
 				if(contents!=null && !contents.isEmpty()){
 					for (Element element : contents) {
 						CDataNode cdNOde = new CDataNode(element.data());
-						Elements content=Jsoup.parse(cdNOde.getWholeText()).getElementsByClass("tab-content");
+						Elements content=Jsoup.parse(cdNOde.getWholeText()).getAllElements();
 						if(content!=null && !content.isEmpty()){
 							for (Element contentElements : content) {
 								Elements elementos= contentElements.getAllElements();
