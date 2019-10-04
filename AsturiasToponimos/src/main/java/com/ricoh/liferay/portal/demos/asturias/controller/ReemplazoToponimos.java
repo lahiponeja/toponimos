@@ -73,9 +73,11 @@ public class ReemplazoToponimos extends MVCPortlet {
 							for (Element contentElements : content) {
 								Elements elementos= contentElements.getAllElements();
 								for (Element elemento : elementos) {
-								System.out.println("Elemento de contenido Original: "+ elemento.ownText());
-								System.out.println("Elemento de contenido Corregido: "+elemento.ownText().replaceAll("Gijón", "Gijón / Xixón (capital)"));
-}
+									if(elemento.ownText().contains("Gijón")){
+										System.out.println("Elemento de contenido Original: "+ elemento.ownText());
+										System.out.println("Elemento de contenido Corregido: "+elemento.ownText().replaceAll("Gijón", "Gijón / Xixón (capital)"));
+									}
+								}
 							}	
 						}
 					}
